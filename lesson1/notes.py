@@ -2,6 +2,8 @@
 # Ultra-introductory python nothes with lots of printing...
 # ============================================================================ #
 
+# Software carpentry lesson linK:
+#    http://swcarpentry.github.io/python-novice-inflammation/01-numpy/index.html
 
 # ============================================================================ #
 # VARIABLES
