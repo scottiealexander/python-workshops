@@ -25,7 +25,7 @@ type(x)
 x = 2
 print("now x =", x)
 
-# we can do somple math as well
+# we can do simple math as well
 x = 2 + 5
 print("x =", x)
 
