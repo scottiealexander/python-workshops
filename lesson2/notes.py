@@ -25,10 +25,9 @@
 import numpy
 
 # you will need to change this based on where your data is located
-# datafile = "../data/inflammation-01.csv"
 
 # load the data
-data = numpy.loadtxt(fname='inflammation-01.csv', delimiter=',')
+data = numpy.loadtxt(fname="./data/inflammation-01.csv", delimiter=",")
 
 # ---------------------------------------------------------------------------- #
 # numpy array basics
@@ -69,10 +68,10 @@ print("small * 2 + small:\n", small * 2 + small)
 # array construction
 
 # arrays sizes must be compatible for element-wise operations
-x = np.array([[1,2,3],[4,5,6]])
+x = numpy.array([[1,2,3],[4,5,6]])
 
 # this is another way to create a 2d array...
-y = np.array([1,1,2,2]).reshape(2,2)
+y = numpy.array([1,1,2,2]).reshape(2,2)
 
 # but note the order!
 print("y =\n", y)
@@ -83,7 +82,7 @@ print("y =\n", y)
 # this will cause an error...
 x + y
 
-z = np.array([1,1,1])
+z = numpy.array([1,1,1])
 
 # this will not... what is numpy doing?
 print("x =\n", x)
@@ -159,15 +158,15 @@ axes2 = fig.add_subplot(1, 3, 2)
 axes3 = fig.add_subplot(1, 3, 3)
 
 # plot daily mean in first plot
-axes1.set_ylabel('average')
+axes1.set_ylabel("average")
 axes1.plot(numpy.mean(data, axis=0))
 
 # plot daily max in second
-axes2.set_ylabel('max')
+axes2.set_ylabel("max")
 axes2.plot(numpy.max(data, axis=0))
 
 # plot daily min in third
-axes3.set_ylabel('min')
+axes3.set_ylabel("min")
 axes3.plot(numpy.min(data, axis=0))
 
 # make it look a little nicer
@@ -182,11 +181,11 @@ pyplot.show()
 
 # ---------------------------------------------------------------------------- #
 # #1
-first, second = 'Grace', 'Hopper'
+first, second = "Grace", "Hopper"
 third, fourth = second, first
 
 # what will this print?
-print(third, forth)
+print(third, fourth)
 
 # ---------------------------------------------------------------------------- #
 # #2
@@ -288,7 +287,7 @@ import numpy
 from matplotlib import pyplot
 
 # get a list of files that start with "inflammation" and have a ".csv" extension
-filenames = sorted(glob.glob('../data/inflammation*.csv'))
+filenames = sorted(glob.glob("./data/inflammation*.csv"))
 
 # but we only want the first 3
 filenames = filenames[0:3]
@@ -298,7 +297,7 @@ for f in filenames:
     print(f)
 
     # load the data
-    data = numpy.loadtxt(fname=f, delimiter=',')
+    data = numpy.loadtxt(fname=f, delimiter=",")
 
     # create our 10x3" figure
     fig = pyplot.figure(figsize=(10.0, 3.0))
@@ -309,13 +308,13 @@ for f in filenames:
     axes3 = fig.add_subplot(1, 3, 3)
 
     # plot the daily mean, max, and min
-    axes1.set_ylabel('average')
+    axes1.set_ylabel("average")
     axes1.plot(numpy.mean(data, axis=0))
 
-    axes2.set_ylabel('max')
+    axes2.set_ylabel("max")
     axes2.plot(numpy.max(data, axis=0))
 
-    axes3.set_ylabel('min')
+    axes3.set_ylabel("min")
     axes3.plot(numpy.min(data, axis=0))
 
     fig.tight_layout()
@@ -337,9 +336,10 @@ for f in filenames:
 # Use each of the files once to generate a dataset containing values averaged over
 # all patients:
 
-filenames = glob.glob('inflammation*.csv')
+filenames = glob.glob("inflammation*.csv")
 composite_data = numpy.zeros((60,40))
 for f in filenames:
+    print(f)
     # sum each new file's data into composite_data as it's read
     #
 
@@ -347,3 +347,127 @@ for f in filenames:
 composite_data /= len(filenames)
 
 # Then use pyplot to generate average, max, and min for all patients
+
+# ============================================================================ #
+# Flow control: conditionals
+# ============================================================================ #
+
+# basic syntax
+num = 37
+if num > 100:
+    print("greater")
+else:
+    print("not greater")
+
+print("done")
+
+# else is not required
+num = 53
+print("before conditional...")
+if num > 100:
+    print(num," is greater than 100")
+
+print("...after conditional")
+
+# we can also use elif...
+num = -3
+
+if num > 0:
+    print(num, "is positive")
+elif num == 0:
+    print(num, "is zero")
+else:
+    print(num, "is negative")
+    
+    
+# and we can have compound statements
+if (1 > 0) and (-1 > 0):
+    print("both parts are true")
+else:
+    print("at least one part is false")
+    
+# also with "or"
+if (1 < 0) or (-1 < 0):
+    print("at least one test is true")
+    
+# also not
+if not 1 > 0:
+    print("really?")
+else:
+    print("whew...")
+    
+# truth beyond logicals
+if "":
+    print("empty string is true")
+else:
+    print("empty string is false")
+
+if "word":
+    print("word is true")
+else:
+    print("word is false")
+
+if []:
+    print("empty list is true")
+else:
+    print("empty list is false")
+
+if [1, 2, 3]:
+    print("non-empty list is true")
+else:
+    print("non-empty list is false")
+
+if 0:
+    print("zero is true")
+else:
+    print("zero is false")
+
+if 1:
+    print("one is true")
+else:
+    print("one is false")
+    
+
+# ============================================================================ #
+# Exercises
+# ============================================================================ #
+
+# 1:
+
+# HINTS:
+# you can use the function / method startswith() to get if a string starts with
+# a substring, as in:
+print("String".startswith("Str"))
+
+# or
+
+print("String".startswith("str"))
+
+# also, you can use the method append() to append an item to a list, as in:
+x = [1,2,3]
+print("x =", x)
+x.append(4)
+print("now x =", x)
+
+# PROBLEM:
+# sort the following list of files into small files, larger files, and other files
+# small files have names that begin with "small", large file names begin with
+# "inflammation" all other files are "others"
+
+
+# Use the following Python code as your starting point:
+
+files = ['inflammation-01.csv',
+         'myscript.py',
+         'inflammation-02.csv',
+         'small-01.csv',
+         'small-02.csv']
+large_files = []
+small_files = []
+other_files = []
+
+# Your solution should:
+
+# loop over the names of the files
+# figure out which group each filename belongs to
+# append the filename to that list
