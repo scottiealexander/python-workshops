@@ -2,20 +2,6 @@
 # LESSON 3
 # ============================================================================ #
 
-# what we covered last time in brief:
-#   1. data types
-#       a. int: 1
-#       b. float: 3.14
-#       c. str: "this is a string"
-#           * indexing: "foo"[1] -> "o"
-#           * slicing: "hello world"[0:5] -> "hello"
-#       d. list: [1,2,3]
-#           * indexing: [1,2,3][1] -> 2
-#           * slicing: [1,2,3,4][0:2] -> [1,2]
-#   2. functions
-#       a. len() -> get the length of a string or list
-#       b. type() -> get the type of any python object
-#       c. <various function that operate on lists>: sorted([3,1,2])
 
 # ============================================================================ #
 # Analyzing inflamation data
